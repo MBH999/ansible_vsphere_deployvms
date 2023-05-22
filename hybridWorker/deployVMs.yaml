@@ -1,0 +1,15 @@
+---
+
+- name: Deploy Virtual Machine from template in content library
+  community.vmware.vmware_content_deploy_template:
+    hostname: '{{ vcenter_hostname }}'
+    username: '{{ vcenter_username }}'
+    password: '{{ vcenter_password }}'
+    library: "Sipcom_LinuxTemplates"
+    template: "Ubuntu-22.10-Template"
+    datastore: "EUW1-MSRV- CL1.1"
+    datacenter: "EUW1"
+    name: "EUW1-VSRV-HY11"
+    resource_pool: "EUW1-RP-AUTOMATION"
+    state: present
+  delegate_to: localhost
